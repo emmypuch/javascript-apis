@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Api</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading">Spicy Meals</h1>
+        <div class="meal-container">
+            <form class="meal-container-flex" id="submit">
+                <input type="text" id="search" placeholder="search for meals Eg: Pizza" autocomplete="off">
+                <button class="search-brn" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <button class="random-btn" id="random">Random</button>
+        </div>
+
+        <p id="meal-result-heading" class="meal-heading-result">Search Result for Pizza</p>
+        <div class="meals-container">
+            <div id="meals" class="all-meals">all images</div>
+        </div>
+
+        <div id="single-meal-container">
+            single images
+        </div>
+    </div>
+
+    <script src="meal.js"></script>
+</body>
+
+</html>
