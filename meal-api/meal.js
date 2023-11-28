@@ -6,6 +6,7 @@ const mealsEl = document.getElementById("meals");
 const single_mealEl = document.getElementById("single-meal-container");
 
 function findMeal(e) {
+  // To prevent data from reloading/refreshing
   e.preventDefault();
   const item = search.value;
   if (item.trim()) {
@@ -36,6 +37,19 @@ function findMeal(e) {
 // Function to get meal ID
 function getsingleItemID(mealID) {
   fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}
+`)
+    .then((res) => res.json())
+    .then((data) => {
+      const meal = data.meals[0];
+      addMealToDOM(meal);
+    });
+}
+
+// Function to get random meals
+function getRandomMeal() {
+  // Clear result data and heading
+  (mealsEl.innerHTML = ""), (resultHeading.innerHTML = "");
+  fetch(`https://www.themealdb.com/api/json/v1/1/random.php
 `)
     .then((res) => res.json())
     .then((data) => {
@@ -76,7 +90,10 @@ function addMealToDOM(meal) {
   `;
 }
 
+// Submit
 submit.addEventListener("submit", findMeal);
+// Random Data
+random.addEventListener("click", getRandomMeal);
 
 // Single Meal Click
 mealsEl.addEventListener("click", (e) => {
